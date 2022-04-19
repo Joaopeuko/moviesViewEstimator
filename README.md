@@ -1,12 +1,12 @@
 # Movies View Estimator
 
-These project tries to predict the number of views a movie might have received by considering the movie Rating and
+This project tries to predict the number of views a movie might have received by considering the movie Rating and
 the Rating Count.
 
-Which makes these project so amazing is that it uses a very small database to train a 
+What makes these project so amazing is that it uses a very small database to train a 
 Linear Regression Model.
 
-It accepts that it is a linear data.
+It accepts that it is linear data.
 
 **The pro for this solution:**
 - It is easy to understand
