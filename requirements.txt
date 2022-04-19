@@ -1,0 +1,9 @@
+pandas
+pytest
+coverage
+setuptools
+pytest-cov
+
+
+
+

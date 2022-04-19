@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies View Estimator &mdash; moviesViewEstimator 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary" href="moviesViewEstimator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> moviesViewEstimator
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="moviesViewEstimator.html">Summary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">moviesViewEstimator</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Movies View Estimator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="movies-view-estimator">
+<h1>Movies View Estimator<a class="headerlink" href="#movies-view-estimator" title="Permalink to this headline"></a></h1>
+<p>These project tries to predict the number of views a movie might have received by considering the movie Rating and
+the Rating Count.</p>
+<p>Which makes these project so amazing is that it uses a very small database to train a
+Linear Regression Model.</p>
+<p>It accepts that it is a linear data.</p>
+<p><strong>The pro for this solution:</strong>
+- It is easy to understand
+- Simple to build
+- Very fast to train
+- Very small project to maintain</p>
+<p><strong>The cons for this solution:</strong></p>
+<ul class="simple">
+<li><p>Too simple</p></li>
+<li><p>It might not present a good prediction result</p></li>
+<li><p>Small dataset used to train</p></li>
+</ul>
+<p>Another good ways to handle this problem would use  <strong>k-nearest neighbors</strong> algorithm.
+It is a good fit for the issue.</p>
+<p><strong>The pro for this solution:</strong>
+- It is easy to understand
+- Simple to build
+- Very small project to maintain</p>
+<p><strong>The cons for this solution:</strong>
+- if the project goes bigger and more data is provided the model is computationally expensive
+- Sensitive to noise
+- Expensive to predict</p>
+<section id="how-to-install">
+<h2>How to install::<a class="headerlink" href="#how-to-install" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">moviesViewEstimator</span>
+</pre></div>
+</div>
+<p>It uses python 3.8</p>
+</section>
+<section id="how-to-use">
+<h2>How to use::<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">LinearRegressionModel</span>
+
+<span class="c1"># if you want to know how many views a movie with rate 8.2 and almost 90 thousand rate count you need to pass a pandas</span>
+<span class="c1"># dataframe, which is the format accepted by the model</span>
+<span class="n">predict_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">8.2</span><span class="p">,</span> <span class="mi">89224</span><span class="p">]])</span> <span class="c1"># rate 8.2 and almost 90 thousand rate count</span>
+<span class="n">predict_dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Rating&#39;</span><span class="p">,</span> <span class="s1">&#39;Rating Count&#39;</span><span class="p">]</span> <span class="c1"># setting the columns names</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegressionModel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">predict_dataframe</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2460651</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The predictions tell us that a movie of Rating 8.2 and a Rating Count of almost 90 thousand,
+would have almost 2.5 million views.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="moviesViewEstimator.html">Summary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="moviesViewEstimator.html" class="btn btn-neutral float-right" title="Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Joao Paulo Euko.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
