@@ -8,17 +8,14 @@ with open("requirements.txt", "r") as requirements_file:
 
 setuptools.setup(
     name='moviesViewEstimator',
-    version='0.0.7',
+    version='0.0.8',
     license='MIT',
     author="Joao Paulo Euko",
     url='https://github.com/Joaopeuko/moviesViewEstimator',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    packages=setuptools.find_packages() + ['linear_regression_model.pickle'],
-    package_dir={
-        'moviesViewEstimator': 'moviesViewEstimator/linear_regression_model',
-        'linear_regression_model.pickle': 'moviesViewEstimator',
-    },
     include_package_data=True,
+    packages=setuptools.find_packages(),
+    package_data={'moviesViewEstimator': ['linear_regression_model.pickle']},
     install_requires=[requirement for requirement in requirements],
 )
