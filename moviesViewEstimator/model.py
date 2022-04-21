@@ -1,3 +1,4 @@
+import os
 import pickle
 import pkgutil
 import logging
@@ -42,8 +43,8 @@ class LinearRegressionModel:
 
         # ----- Setting up path model ----- #
 
-        self._path = "/linear_regression_model.pickle"
-        self._filepath = pkg_resources.resource_filename(__name__, self._path)
+        self._path = os.path.dirname(__file__)
+        self._filepath = os.path.join(self._path,  "linear_regression_model.pickle")
 
         # ----- Setting up the model ----- #
         self.linear_regression_model = None
