@@ -8,12 +8,13 @@ with open("requirements.txt", "r") as requirements_file:
 
 setuptools.setup(
     name='moviesViewEstimator',
-    version='0.0.4',
+    version='0.0.5',
     license='MIT',
     author="Joao Paulo Euko",
     url='https://github.com/Joaopeuko/moviesViewEstimator',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
+    package_data={'': ['/*.pickle']},
     install_requires=[requirement for requirement in requirements],
 )
