@@ -1,7 +1,9 @@
 import pickle
+import pkgutil
 import logging
 import numpy as np
 import pandas as pd
+import pkg_resources
 from sklearn.linear_model import LinearRegression
 
 
@@ -38,6 +40,11 @@ class LinearRegressionModel:
 
         self.logger.info('Setting up the linear_regression_model')
 
+        # ----- Setting up path model ----- #
+
+        self._path = "/linear_regression_model.pickle"
+        self._filepath = pkg_resources.resource_filename(__name__, self._path)
+
         # ----- Setting up the model ----- #
         self.linear_regression_model = None
         self._load_model()
@@ -53,7 +60,7 @@ class LinearRegressionModel:
         """
         self.logger.info(f'Load model called')
         try:
-            with open('moviesViewEstimator/linear_regression_model.pickle', 'rb') as file:
+            with open(self._filepath, 'rb') as file:
                 self.logger.info(f'Model found, assigning to the attribute linear_regression_model')
                 self.linear_regression_model = pickle.load(file)
                 self.logger.info(f'Model assignment done.')
@@ -136,7 +143,7 @@ class LinearRegressionModel:
         self.logger.info(f'Training the new model')
         linear_regression_model.fit(rating_rating_count, views)
 
-        with open('linear_regression_model.pickle', 'wb') as file:
+        with open(self._filepath, 'wb') as file:
             self.logger.info(f'Saving the new model for future use')
             pickle.dump(linear_regression_model, file)
 
